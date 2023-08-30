@@ -1,0 +1,28 @@
+--Create a grocery store database
+
+CREATE TABLE clothing (id INTEGER PRIMARY KEY, quantity INTEGER, style TEXT, size TEXT, price INTEGER);
+
+INSERT INTO clothing VALUES (1, 30, "pants", "small", 25);
+INSERT INTO clothing VALUES (2, 45, "pants", "medium", 25);
+INSERT INTO clothing VALUES (3, 31, "pants", "large", 25);
+INSERT INTO clothing VALUES ( 4, 18, "pants", "small", 25);
+INSERT INTO clothing VALUES (5, 29, "pants", "medium", 25);
+INSERT INTO clothing VALUES (6, 39, "pants", "large", 25);
+INSERT INTO clothing VALUES (7, 38, "tshirt", "small", 15);
+INSERT INTO clothing VALUES (8, 39, "tshirt", "medium", 15);
+INSERT INTO clothing VALUES (9, 89, "tshirt", "large", 15);
+INSERT INTO clothing VALUES (10, 73, "tshirt", "small", 15);
+INSERT INTO clothing VALUES (11, 83, "tshirt", "medium", 15);
+INSERT INTO clothing VALUES (12, 91, "tshirt", "large", 15);
+INSERT INTO clothing VALUES (13, 95, "tshirt", "small", 60);
+INSERT INTO clothing VALUES (14, 63, "tshirt", "medium", 60);
+INSERT INTO clothing VALUES (15, 22, "tshirt", "large", 60);
+
+--display the database ordered by price.
+
+SELECT * FROM clothing
+ORDER BY price desc;
+
+--what is the total inventory count?
+
+SELECT SUM(quantity) FROM clothing
