@@ -1,3 +1,6 @@
+This project utilized SQLite Studio. The data that was used for this project can be downloaded here:
+https://www.dropbox.com/s/cvsasmtr8syq2c2/BIT_DB?dl=0
+
 
 #1. How many orders were placed in January? 
 SELECT COUNT(orderid)
