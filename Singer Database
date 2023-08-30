@@ -1,0 +1,42 @@
+/* Create table about the people and what they do here */
+
+CREATE TABLE singers (id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT, career TEXT, age INTEGER );
+
+INSERT INTO singers (name,age) VALUES ("Justin Bieber", 28);
+INSERT INTO singers (name, age) VALUES ("Kid Laroi",51);
+INSERT INTO singers (name, age) VALUES ("Selena Gomez", 32);
+INSERT INTO singers (name, age) VALUES ("Madona", 33);
+INSERT INTO singers (name, age) VALUES ("Drake", 23);
+
+CREATE TABLE songs (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, release_date INTEGER);
+
+INSERT INTO songs (name, release_date) VALUES ("Never Say Never", 2010);
+INSERT INTO songs (name, release_date) VALUES ("Stay", 2021);
+INSERT INTO songs (name, release_date) VALUES ("Who Says", 2010);
+INSERT INTO songs (name, release_date) VALUES ("Love You", 2007);
+INSERT INTO songs (name, release_date) VALUES ("Fake Love", 2016);
+
+CREATE TABLE hobbies (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT);
+
+INSERT INTO hobbies (name) VALUES ("singing");
+INSERT INTO hobbies (name) VALUES ("running");
+INSERT INTO hobbies (name) VALUES ("skating");
+INSERT INTO hobbies (name) VALUES ("hiking");
+INSERT INTO hobbies (name) VALUES ("gaming");
+
+--In this query, we will be using the JOIN clause to discover the singers' favourite hobbies
+
+SELECT s.name, h.name
+FROM singers AS s
+JOIN hobbies AS h
+ON s.id = h.id;
+
+--In this query, we will be using the JOIN clause to figure out what songs they sing
+
+SELECT singers.name, songs.name
+FROM singers
+JOIN songs
+ON singers.id = songs.id
+
+
+
