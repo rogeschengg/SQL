@@ -1,0 +1,52 @@
+# For this project, I downloaded a database from this link "https://cdn.fs.teachablecdn.com/dRmwOLQsS22FVFbXfh3x"
+# Here are some example questions I came up with while answering them using this database
+
+1. Show Customers (their full names, customer ID, and country) who are not in the US. (Hint: != or <> can be used to say "is not equal to").
+
+SELECT FirstName, LastName, CustomerId, Country
+FROM customers
+WHERE Country <> 'USA'
+
+2. Show only the Customers from Brazil.
+
+SELECT FirstName, LastName, CustomerId, Country
+FROM customers
+WHERE Country = 'Brazil'
+
+3. Find the Invoices of customers who are from Brazil. The resulting table should show the customer's full name, Invoice ID, Date of the invoice, and billing country.
+
+SELECT c.FirstName, c.LastName, i.InvoiceId, i.InvoiceDate, i.BillingCountry
+FROM customers c
+JOIN invoices i
+
+4. Show the Employees who are Sales Agents.
+
+SELECT FirstName, LastName, Title
+FROM employees
+WHERE Title = 'Sales Agent'
+
+# This query showed no results. I examined the database and found that there are no
+"Sales Agent." I made a small change to the query to showcase the Sales Agent #
+
+SELECT FirstName, LastName, Title
+FROM employees
+WHERE Title LIKE '%Agent'
+
+# This query showed all employees who are Sales Agent #
+
+5. Find a unique/distinct list of billing countries from the Invoice table.
+
+SELECT DISTINCT BillingCountry
+FROM invoices
+
+6. Provide a query that shows the invoices associated with each sales agent.
+  The resulting table should include the Sales Agent's full name.
+
+SELECT emp.FirstName, emp.LastName, inv.InvoiceId
+FROM chinook.Employees emp
+JOIN chinook.customers cust ON cust.SupportRepId = emp.EmployeeId
+JOIN chinook.invoices inv ON inv.invoiceId = cust.CustomerId
+
+
+
+
